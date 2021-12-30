@@ -18,8 +18,14 @@ ast = v.generateAST("./helloworld.py")
 v.visualiseASTGraph(ast)
 ```
 
-Or from the terminal:
+Or (if installed from source, rather than pip) from the terminal:
 
 ```bash
 $python vast.py ./helloworld.py
 ```
+
+## Like what you see?  Buy me a snack
+
+If you want to see more of what I do, you can visit [my blog](https://jamesphillipsuk.com "Go there now").
+
+If you want to donate to my development work by buying me a snack, I use [PayPal.Me](https://paypal.me/JamesPhillipsUK "My PayPal.Me").
