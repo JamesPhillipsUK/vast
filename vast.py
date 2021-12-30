@@ -14,6 +14,11 @@ import matplotlib.pyplot as plt
 
 class Vast:
 
+    def __init__(self, path: str = ""):
+        if path:
+            aST = self.generateAST(path)  # Get python from a URL
+            self.visualiseASTGraph(aST)
+
     def generateAST(self, path: str):
         """This method, given a python file's path, generates an abstract
         syntax tree for it.
