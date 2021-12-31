@@ -9,7 +9,7 @@ VAST generates ASTs for a given Python script and builds visualisations of them.
 From a python script:
 
 ```python
-from vast import Vast
+from vast.vast import Vast
 
 v = Vast("./helloworld.py")
 # or
