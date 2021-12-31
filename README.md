@@ -4,6 +4,10 @@ VAST - Visualise Abstract Syntax Trees for Python.
 
 VAST generates ASTs for a given Python script and builds visualisations of them.
 
+## Install
+
+Install from PyPI [Here!](https://pypi.org/project/VisAST/)
+
 ## How to use
 
 From a python script:
@@ -21,7 +25,7 @@ v.visualiseASTGraph(ast)
 Or (if installed from source, rather than pip) from the terminal:
 
 ```bash
-$python vast.py ./helloworld.py
+python vast.py ./helloworld.py
 ```
 
 ## Like what you see?  Buy me a snack
