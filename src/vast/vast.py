@@ -19,7 +19,7 @@ class Vast:
             aST = self.generateAST(path)  # Get python from a URL
             self.visualiseASTGraph(aST)
 
-    def generateAST(self, path: str):
+    def generateASTFromPath(self, path: str):
         """This method, given a python file's path, generates an abstract
         syntax tree for it.
 
@@ -32,8 +32,43 @@ class Vast:
         """
         with open(path) as file:
             fileString = file.read()
-        aST = ast.parse(fileString)
-        return aST
+        if fileString:
+            aST = ast.parse(fileString)
+            return aST
+        else:
+            raise ValueError("Cannot make an AST from an empty file.")
+
+    def generateAST(self, path: str):
+        """DEPRECATED.This method, given a python file's path, generates an
+        abstract syntax tree for it.
+
+        Args:
+            path (string): The filepath.
+
+        Returns:
+            AST: The abstract syntax tree.
+
+        """
+        print("The generateAST method is deprecated and will be removed.")
+        print("Defaulting to generateASTFromPath(path: str).")
+        return self.generateASTFromPath(path)
+
+    def generateASTFromString(self, codeString: str):
+        """This method, given a string of Python, generates an abstract
+        syntax tree for it.
+
+        Args:
+            codeString (string): The code to analyse.
+
+        Returns:
+            AST: The abstract syntax tree.
+
+        """
+        if codeString:
+            aST = ast.parse(codeString)
+            return aST
+        else:
+            raise ValueError("Cannot make an AST from an empty string.")
 
     def visualiseASTGraph(self, aST: ast):
         """Builds a visualisation of the provided AST.
