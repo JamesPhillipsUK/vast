@@ -18,7 +18,11 @@ from vast.vast import Vast
 v = Vast("./helloworld.py")
 # or
 v = Vast()
-ast = v.generateAST("./helloworld.py")
+ast = v.generateASTFromPath("./helloworld.py")
+v.visualiseASTGraph(ast)
+# or
+pyString = "print(\"Hello, World!\")"
+ast = v.generateASTFromString(pyString)
 v.visualiseASTGraph(ast)
 ```
 
