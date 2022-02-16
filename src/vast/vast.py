@@ -10,14 +10,28 @@ import sys
 import networkx as nx
 import EoN
 import matplotlib.pyplot as plt
+import urllib.request
 
 
 class Vast:
 
     def __init__(self, path: str = ""):
         if path:
-            aST = self.generateASTFromPath(path)  # Get python from a URL
+            aST = self.generateASTFromPath(path)  # Get python
             self.visualiseASTGraph(aST)
+
+    def generateASTFromURL(self, uRL: str):
+        if uRL:
+            try:
+                fileString = urllib.request.urlopen(uRL).read().decode()
+            except Exception as E:
+                raise E
+            try:
+                aST = ast.parse(fileString)
+            except SyntaxError as S:
+                raise S
+            return aST
+        raise ValueError("Cannot generate AST from URL if none is provided.")
 
     def generateASTFromPath(self, path: str):
         """This method, given a python file's path, generates an abstract
