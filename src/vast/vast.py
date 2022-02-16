@@ -140,18 +140,16 @@ class Vast:
                     if childLabel == "Constant":
                         childLabel += " " + str(child.value)
 
+                    labelDictionary[childNodeID] = childLabel
                     if (childLabel == "Load"
                        or childLabel == "Store"
                        or childLabel == "Del"):
-                        nodeLabel = str(node.id)
-                        labelDictionary[nodeID] = nodeLabel
-                    else:
-                        labelDictionary[childNodeID] = childLabel
-                        GRAPH.add_edge(nodeID, childNodeID)
-                        edges.append([nodeID, childNodeID])
-                else:
-                    GRAPH.add_edge(nodeID, childNodeID)
-                    edges.append([nodeID, childNodeID])
+                        if hasattr(node,"id"):
+                            nodeLabel = str(node.id)
+                            labelDictionary[nodeID] = nodeLabel
+                        
+                GRAPH.add_edge(nodeID, childNodeID)
+                edges.append([nodeID, childNodeID])
 
         # Make the graph look like a tree using hierarchy_pos.
         pos = EoN.hierarchy_pos(GRAPH, rootNodeID)
