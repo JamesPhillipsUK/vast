@@ -16,11 +16,28 @@ import urllib.request
 class Vast:
 
     def __init__(self, path: str = ""):
+        """Constructor.  If a filepath is provided, automatically generates and
+        visualises the AST for that filepath.
+
+        Args:
+            path (string): The filepath.
+
+        """
         if path:
             aST = self.generateASTFromPath(path)  # Get python
             self.visualiseASTGraph(aST)
 
     def generateASTFromURL(self, uRL: str):
+        """This method, given a python file's URL, generates an abstract
+        syntax tree for it.
+
+        Args:
+            uRL (string): The URL.
+
+        Returns:
+            AST: The abstract syntax tree.
+
+        """
         if uRL:
             try:
                 fileString = urllib.request.urlopen(uRL).read().decode()
