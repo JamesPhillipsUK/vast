@@ -157,7 +157,7 @@ class Vast:
 
         """
         if len(argv) > 1:
-            aST = self.generateAST(argv[1])  # Get python from a URL
+            aST = self.generateASTFromPath(argv[1])  # Get python from a URL
             self.visualiseASTGraph(aST)
         else:
             print("No filepath given.")
