@@ -125,6 +125,7 @@ class Vast:
 
             if rootNodeID == "noRoot":
                 rootNodeID = nodeID
+
             for child in ast.iter_child_nodes(node):
                 childNodeID = str(child.__class__) + str(id(child))
                 for edge in edges:
@@ -138,10 +139,19 @@ class Vast:
                                      ).split("t.")[1].split("'>")[0]
                     if childLabel == "Constant":
                         childLabel += " " + str(child.value)
-                    labelDictionary[childNodeID] = childLabel
 
-                GRAPH.add_edge(nodeID, childNodeID)
-                edges.append([nodeID, childNodeID])
+                    if (childLabel == "Load"
+                       or childLabel == "Store"
+                       or childLabel == "Del"):
+                        nodeLabel = str(node.id)
+                        labelDictionary[nodeID] = nodeLabel
+                    else:
+                        labelDictionary[childNodeID] = childLabel
+                        GRAPH.add_edge(nodeID, childNodeID)
+                        edges.append([nodeID, childNodeID])
+                else:
+                    GRAPH.add_edge(nodeID, childNodeID)
+                    edges.append([nodeID, childNodeID])
 
         # Make the graph look like a tree using hierarchy_pos.
         pos = EoN.hierarchy_pos(GRAPH, rootNodeID)
