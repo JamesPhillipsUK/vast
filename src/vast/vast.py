@@ -16,7 +16,7 @@ class Vast:
 
     def __init__(self, path: str = ""):
         if path:
-            aST = self.generateAST(path)  # Get python from a URL
+            aST = self.generateASTFromPath(path)  # Get python from a URL
             self.visualiseASTGraph(aST)
 
     def generateASTFromPath(self, path: str):
