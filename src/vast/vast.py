@@ -155,7 +155,12 @@ class Vast:
 
         # Make the graph look like a tree using hierarchy_pos.
         pos = EoN.hierarchy_pos(GRAPH, rootNodeID)
-        nx.draw(GRAPH, pos=pos, labels=labelDictionary, with_labels=True)
+        nx.draw_networkx_nodes(GRAPH, pos=pos, alpha=0.6)
+        nx.draw_networkx_edges(GRAPH, pos=pos, alpha=0.5)
+        nx.draw_networkx_labels(GRAPH, pos=pos, labels=labelDictionary)
+
+        plt.tight_layout(pad=0)
+        plt.axis("off")
         plt.show()  # Tada!
 
     def main(self, argv):
