@@ -24,6 +24,10 @@ v.visualiseASTGraph(ast)
 pyString = "print(\"Hello, World!\")"
 ast = v.generateASTFromString(pyString)
 v.visualiseASTGraph(ast)
+# or
+pyURL = "https://example.com/helloworld.py"
+ast = v.generateASTFromURL(pyURL)
+v.visualiseASTGraph(ast)
 ```
 
 Or (if installed from source, rather than pip) from the terminal:
