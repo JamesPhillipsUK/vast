@@ -13,7 +13,7 @@ import EoN
 import matplotlib.pyplot as plt
 
 
-def visualiseASTGraph(aST: ast):
+def graph(aST: ast):
     """Builds a visualisation of the provided AST.
 
     Args:

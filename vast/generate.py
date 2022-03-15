@@ -9,7 +9,7 @@ import ast
 import urllib.request
 
 
-def generateASTFromURL(uRL: str):
+def fromURL(uRL: str):
     """This method, given a python file's URL, generates an abstract
     syntax tree for it.
 
@@ -33,7 +33,7 @@ def generateASTFromURL(uRL: str):
     raise ValueError("Cannot generate AST from URL if none is provided.")
 
 
-def generateASTFromPath(path: str):
+def fromPath(path: str):
     """This method, given a python file's path, generates an abstract
     syntax tree for it.
 
@@ -53,7 +53,7 @@ def generateASTFromPath(path: str):
         raise ValueError("Cannot make an AST from an empty file.")
 
 
-def generateASTFromString(codeString: str):
+def fromString(codeString: str):
     """This method, given a string of Python, generates an abstract
     syntax tree for it.
 
