@@ -1,8 +1,8 @@
-# VAST
+# VisAST
 
-VAST - Visualise Abstract Syntax Trees for Python.
+VisAST - Visualise Abstract Syntax Trees for Python.
 
-VAST generates ASTs for a given Python script and builds visualisations of them.
+VisAST generates ASTs for a given Python script and builds visualisations of them.
 
 ## Install
 
@@ -13,27 +13,19 @@ Install from PyPI [Here!](https://pypi.org/project/VisAST/)
 From a python script:
 
 ```python
-from vast.vast import Vast
+from visast import generate, visualise
 
-v = Vast("./helloworld.py")
-# or
-v = Vast()
-ast = v.generateASTFromPath("./helloworld.py")
-v.visualiseASTGraph(ast)
+ast = generate.fromPath("./helloworld.py")
+visualise.graph(ast)
 # or
 pyString = "print(\"Hello, World!\")"
-ast = v.generateASTFromString(pyString)
-v.visualiseASTGraph(ast)
+ast = generate.fromromString(pyString)
+visualise.graph(ast)
 # or
 pyURL = "https://example.com/helloworld.py"
-ast = v.generateASTFromURL(pyURL)
-v.visualiseASTGraph(ast)
-```
+ast = generate.fromURL(pyURL)
+visualise.graph(ast)
 
-Or (if installed from source, rather than pip) from the terminal:
-
-```bash
-python vast.py ./helloworld.py
 ```
 
 ## Like what you see?  Buy me a snack
