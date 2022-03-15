@@ -68,7 +68,7 @@ def graph(aST: ast):
     nx.draw_networkx_nodes(GRAPH, pos=pos, alpha=0.6)
     nx.draw_networkx_edges(GRAPH, pos=pos, alpha=0.5)
     nx.draw_networkx_labels(GRAPH, pos=pos, labels=labelDictionary)
-    
+
     plt.title("Abstract Syntax Tree:")
     plt.tight_layout(pad=0)
     plt.axis("off")
