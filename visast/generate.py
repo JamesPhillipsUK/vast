@@ -1,6 +1,6 @@
 """generator.py Generates an Abstract Syntax Tree
 
-VAST - Building and visualising Abstract Syntax Trees for Python code.
+VisAST - Building and visualising Abstract Syntax Trees for Python code.
 
 Authors: Jesse Phillips <james@jamesphillipsuk.com>
 
