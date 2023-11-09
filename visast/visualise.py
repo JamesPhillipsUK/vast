@@ -71,18 +71,18 @@ def __colourNodes(labels: dict) -> list:
 
     Args:
         labels(dict(str)): the labels for the AST.  Search these for features.
-    
+
     Returns:
         list: the list of colours for nodes in the graph.
     """
     colourMap = []
     for label in labels:
-        l = label.split("ast.")[1].split("'>")[0]
-        if l == "Module":
+        cleanLabel = label.split("ast.")[1].split("'>")[0]
+        if cleanLabel == "Module":
             colourMap.append("#b3ffb3")
-        elif l == "ClassDef":
+        elif cleanLabel == "ClassDef":
             colourMap.append("#ffffb3")
-        elif l == "FunctionDef":
+        elif cleanLabel == "FunctionDef":
             colourMap.append("#ffb3ff")
         else:
             colourMap.append("#1f78b4")
