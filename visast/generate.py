@@ -3,14 +3,13 @@
 VisAST - Building and visualising Abstract Syntax Trees for Python code.
 
 Authors: Jesse Phillips <james@jamesphillipsuk.com>
-
 """
 import ast
 import urllib.request
 
 
-def fromURL(uRL: str):
-    """This method, given a python file's URL, generates an abstract
+def fromURL(uRL: str) -> ast.AST:
+    """ This method, given a python file's URL, generates an abstract
     syntax tree for it.
 
     Args:
@@ -18,7 +17,6 @@ def fromURL(uRL: str):
 
     Returns:
         AST: The abstract syntax tree.
-
     """
     if uRL:
         try:
@@ -33,8 +31,8 @@ def fromURL(uRL: str):
     raise ValueError("Cannot generate AST from URL if none is provided.")
 
 
-def fromPath(path: str):
-    """This method, given a python file's path, generates an abstract
+def fromPath(path: str) -> ast.AST:
+    """ This method, given a python file's path, generates an abstract
     syntax tree for it.
 
     Args:
@@ -42,7 +40,6 @@ def fromPath(path: str):
 
     Returns:
         AST: The abstract syntax tree.
-
     """
     with open(path) as file:
         fileString = file.read()
@@ -53,8 +50,8 @@ def fromPath(path: str):
         raise ValueError("Cannot make an AST from an empty file.")
 
 
-def fromString(codeString: str):
-    """This method, given a string of Python, generates an abstract
+def fromString(codeString: str) -> ast.AST:
+    """ This method, given a string of Python, generates an abstract
     syntax tree for it.
 
     Args:
@@ -62,7 +59,6 @@ def fromString(codeString: str):
 
     Returns:
         AST: The abstract syntax tree.
-
     """
     if codeString:
         aST = ast.parse(codeString)
